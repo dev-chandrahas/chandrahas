@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Contact</title>
+  <link rel="stylesheet" href="./style.css">
+<link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=KoHo' rel='stylesheet'> 
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<style type="text/css">
+  
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 550px;
+}
+
+/* Style the Un-order list by setting its list-style to none */
+.wrapper ul {
+  list-style: none;
+}
+
+/* Style the list items inside the UL list, by setting its width, height and line-height 
+  and float them to left and set its border and border-radius.
+ */
+.wrapper ul li {
+  width: 35px;
+  height: 35px;
+  margin: 0 10px;
+  float: left;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+
+/* Style the icons by setting its color and margin-top value to 20px 
+to align it properly */
+.wrapper ul li .fa {
+  font-size: 1em;
+  color: #D8E2DC;
+  margin-top: 0px;
+  transition: all 0.5s ease;
+}
+
+/* Now target the specific li classes for styling and use box-shadow effect to border and text-shadow effect
+  to icons for glowing effect and use transition property for smooth transition effect. */
+/*facebook*/
+.wrapper ul li:hover.facebook {
+  background-color: black;
+  box-shadow: 0 0 15px #3b5998;
+  transition: all 0.5s ease;
+}
+
+.wrapper ul li:hover .fa-facebook {
+  color: #3b5998;
+  text-shadow: 0 0 15px #3b5998;
+  transition: all 0.5s ease;
+}
+
+/*twitter*/
+.wrapper ul li:hover.twitter {
+  background-color: black;
+  box-shadow: 0 0 15px #00aced;
+  transition: all 0.5s ease;
+}
+
+.wrapper ul li:hover .fa-twitter {
+  color: #00aced;
+  text-shadow: 0 0 15px #00aced;
+  transition: all 0.5s ease;
+}
+
+/* instagram */
+.wrapper ul li:hover.instagram {
+  background-color: black;
+  box-shadow: 0 0 15px #bc2a8d;
+  transition: all 0.5s ease;
+}
+
+.wrapper ul li:hover .fa-instagram {
+  color: #bc2a8d;
+  text-shadow: 0 0 15px #bc2a8d;
+  transition: all 0.5s ease;
+}
+
+/* google */
+.wrapper ul li:hover.google {
+  box-shadow: 0 0 15px #dd4b39;
+  transition: all 0.5s ease;
+}
+
+.wrapper ul li:hover .fa-google {
+  color: #dd4b39;
+  text-shadow: 0 0 15px #dd4b39;
+  transition: all 0.5s ease;
+}
+
+/* whatsapp */
+.wrapper ul li:hover.whatsapp {
+  box-shadow: 0 0 15px #4dc247;
+  transition: all 0.5s ease;
+  background-color: black;
+}
+
+.wrapper ul li:hover .fa-whatsapp {
+  color: #4dc247;
+  text-shadow: 0 0 15px #4dc247;
+  transition: all 0.5s ease;
+}
+
+  .text-upper{text-transform:uppercase;font-family:Montserrat,sans-serif;}.flex-box{flex-direction:column}footer{position:fixed;bottom:0;width:100%;font-size:12px;padding:30px;} #about_page footer{background-image:linear-gradient(-180deg,rgba(0,0,0,0) 0,#000 100%)}footer .social a{margin:0 15px;font-size:16px}.info{margin:0 -30px}.info a{margin:0 15px}.copy{color:#c3c3c3;font-size:10px;margin:0;padding:0px 0 190px}.mobile-hide{display:block}.margin-bottom-10{margin-bottom:10px!important}
+  .atag{text-decoration:none;color:#fff;font-size:12px;position:relative}.atag:hover{color:#fff;text-decoration:none}.atag:after{transition:.5s ease all;content:"";position:absolute;width:100%;height:1px;background:#fff;left:0;top:0;bottom:0;opacity:0;margin:auto}.atag.active:after,.atag:hover:after{opacity:1}
+
+
+
+/* media queries */
+
+@media screen and (max-width: 640px){
+  .wrapper {
+      width: 350px;
+  }
+  .wrapper ul li{
+      margin-top: 10px;
+  }
+  .wrapper ul li.google{
+      margin-left: 60px;
+  }
+}
+
+
+@media screen and (max-width: 340px){
+  .wrapper {
+      width: 150px;
+  }
+  .wrapper ul li{
+      margin:15px;
+  }
+  .wrapper ul li.google{
+      margin-left: 15px;
+  }
+}
+</style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<script src="three.min.js"></script>
+<script id="vertexShader" type="x-shader/x-vertex">
+    void main() {
+        gl_Position = vec4( position, 1.0 );
+    }
+</script>
+<script id="fragmentShader" type="x-shader/x-fragment">
+  uniform vec2 u_resolution;
+  uniform vec2 u_mouse;
+  uniform float u_time;
+  uniform sampler2D u_noise;
+  uniform sampler2D u_buffer;
+  uniform bool u_renderpass;
+    
+  const float blurMultiplier = 0.95;
+  const float circleSize = .25;
+  const float blurStrength = .98;
+  const float threshold = .5;
+  const float scale = 4.;
+  
+  #define _fract true
+  
+  #define PI 3.141592653589793
+  #define TAU 6.283185307179586
+
+  vec2 hash2(vec2 p)
+  {
+    vec2 o = texture2D( u_noise, (p+0.5)/256.0, -100.0 ).xy;
+    return o;
+  }
+  
+  vec3 hsb2rgb( in vec3 c ){
+    vec3 rgb = clamp(abs(mod(c.x*6.0+vec3(0.0,4.0,2.0),
+                             6.0)-3.0)-1.0,
+                     0.0,
+                     1.0 );
+    rgb = rgb*rgb*(3.0-2.0*rgb);
+    return c.z * mix( vec3(1.0), rgb, c.y);
+  }
+  
+  vec3 domain(vec2 z){
+    return vec3(hsb2rgb(vec3(atan(z.y,z.x)/TAU,1.,1.)));
+  }
+  vec3 colour(vec2 z) {
+      return domain(z);
+  }
+
+  
+#define pow2(x) (x * x)
+
+const int samples = 8;
+const float sigma = float(samples) * 0.25;
+
+float gaussian(vec2 i) {
+    return 1.0 / (2.0 * PI * pow2(sigma)) * exp(-((pow2(i.x) + pow2(i.y)) / (2.0 * pow2(sigma))));
+}
+
+vec3 hash33(vec3 p){ 
+    
+    float n = sin(dot(p, vec3(7, 157, 113)));    
+    return fract(vec3(2097152, 262144, 32768)*n); 
+}
+
+vec3 blur(sampler2D sp, vec2 uv, vec2 scale) {
+    vec3 col = vec3(0.0);
+    float accum = 0.0;
+    float weight;
+    vec2 offset;
+    
+    for (int x = -samples / 2; x < samples / 2; ++x) {
+        for (int y = -samples / 2; y < samples / 2; ++y) {
+            offset = vec2(x, y);
+            weight = gaussian(offset);
+            col += texture2D(sp, uv + scale * offset).rgb * weight;
+            accum += weight;
+        }
+    }
+    
+    return col / accum;
+}
+  void main() {
+    vec2 uv = (gl_FragCoord.xy - 0.5 * u_resolution.xy) / u_resolution.y;
+    uv *= scale;
+    vec2 mouse = u_mouse * scale;
+    
+    vec2 ps = vec2(1.0) / u_resolution.xy;
+    vec2 sample = gl_FragCoord.xy / u_resolution.xy;
+    vec2 o = mouse*.2+vec2(.65, .5);
+    float d = .98;
+    sample = d * (sample - o);
+    sample += o;
+    sample += vec2(sin((u_time+uv.y * .5)*10.)*.001, -.00);
+    
+    vec3 fragcolour;
+    vec4 tex;
+    if(u_renderpass) {
+      tex = vec4(blur(u_buffer, sample, ps*blurStrength) * blurMultiplier, 1.);
+      float df = length(mouse - uv);
+      fragcolour = vec3( smoothstep( circleSize, 0., df ) );
+    } else {
+      tex = texture2D(u_buffer, sample, 2.) * .98;
+      tex = vec4(
+        smoothstep(0.0, threshold - fwidth(tex.x), tex.x),
+        smoothstep(0.2, threshold - fwidth(tex.y) + .2, tex.y),
+        smoothstep(-0.05, threshold - fwidth(tex.z) - .2, tex.z),
+        1.);
+      vec3 n = hash33(vec3(uv, u_time*.1));
+      tex.rgb += n * .2 - .1;
+      // tex = vec4(
+      //   smoothstep(0.0, threshold - fwidth(tex.x), tex.x),
+      //   smoothstep(0.2, threshold - fwidth(tex.x) + .2, tex.x),
+      //   smoothstep(-0.05, threshold - fwidth(tex.x) - .2, tex.x),
+      //   1.);
+    }
+    // vec4 tex = texture2D(u_buffer, sample, 2.) * .98;
+    
+    
+
+    gl_FragColor = vec4(fragcolour,1.0);
+    gl_FragColor += tex;
+    
+  }
+</script>
+<div id="container" touch-action="none">
+<div id="overlay" style="color: white">
+       <h1 style="margin:130px 0px 0px 140px">Creative Digital Experiences.</h1>
+<h1 style="margin:20px 440px 0px 150px; font-family: 'KoHo', cursive;font-size: 16px">I want to make things
+that make a difference <p>I’ve always sought out opportunities and challenges that are meaningful to me. Although my professional path has taken many twists and turns — from DBA, to Web and Android Developer. I've never stopped engaging my passion.That's why I’m excited to make a big impact at a high growth company.</p></h1>
+
+<div class="wrapper">
+  <ul style="margin: 408px 0px 0px -300px">
+    <a href="https://www.facebook.com/chandrahas.verma.39545" target="_blank"><li class="facebook"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></li></a>
+    <a href="https://twitter.com/V77581679" target="_blank"> <li class="twitter"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></li></a>
+    <a href="https://www.instagram.com/ch4ndr4h4s/" target="_blank"> <li class="instagram"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></li></a>
+    <a href="https://www.linkedin.com/in/chandrahas-verma-18b773145/" target="_blank"> <li class="whatsapp"><img class="fa fa-twitter fa-2x" src="linkedin.svg" height="20px" width="20px"></li></a>
+  </ul>
+</div>
+    </div>
+    <footer class="text-upper flex-box"><div class="social"></div><p class="copy" style="writing-mode: vertical-rl;">© 2019. Design &amp; Code By Chandrahas Verma</p><div class="info mobile-hide margin-bottom-10"><a href="../index.html" class="atag">Home</a></footer>
+</div>
+
+
+<!-- partial -->
+  <script src='ccapture.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

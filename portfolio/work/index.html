@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Work</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Playfair+Display:700|Raleway:500.700'>
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./cardstyle.css">
+<style type="text/css">.noselect {-webkit-touch-callout: none; /* iOS Safari */ -webkit-user-select: none; /* Safari */-khtml-user-select: none; /* Konqueror HTML */-moz-user-select: none; /* Firefox */ -ms-user-select: none; /* Internet Explorer/Edge */ user-select: none;  max-width: 100%; overflow-x: hidden;}
+
+.text-upper{text-transform:uppercase;font-family:Montserrat,sans-serif;}
+.atag{writing-mode: horizontal-tb; text-decoration:none;color:#fff;font-size:12px;position:relative}.atag:hover{color:#fff;text-decoration:none}.atag:after{transition:.5s ease all;content:"";position:absolute;width:100%;height:1px;background:#fff;left:0;top:0;bottom:0;opacity:0;margin:auto}.atag.active:after,.atag:hover:after{opacity:1}
+
+.texting {
+  color: #fff;
+  font-family: Avenir Next, Helvetica Neue, Helvetica, Tahoma, sans-serif;
+  font-size: 1em;
+  font-weight: 800;
+}
+.texting span {
+  display: inline-block;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 500;
+          perspective: 500;
+  -webkit-font-smoothing: antialiased;
+}
+.texting span::before,
+.texting span::after {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -1px;
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+  transition: all ease-out 0.3s;
+  content: attr(data-text);
+}
+.texting span::before {
+  z-index: 1;
+  color: rgba(0,0,0,0.2);
+  -webkit-transform: scale(1.1, 1) skew(0deg, 20deg);
+          transform: scale(1.1, 1) skew(0deg, 20deg);
+}
+.texting span::after {
+  z-index: 2;
+  color: #ffffff;
+  text-shadow: -1px 0 1px #684da3, 1px 0 1px rgba(0,0,0,0.8);
+  -webkit-transform: rotateY(-40deg);
+          transform: rotateY(-40deg);
+}
+.texting span:hover::before {
+  -webkit-transform: scale(1.1, 1) skew(0deg, 5deg);
+          transform: scale(1.1, 1) skew(0deg, 5deg);
+}
+.texting span:hover::after {
+  -webkit-transform: rotateY(-10deg);
+          transform: rotateY(-10deg);
+}
+.texting span + span {
+  margin-left: 0.3em;
+}
+@media (min-width: 20em) {
+  .texting {
+    font-size: 2em;
+  }
+  .texting span::before,
+  .texting span::after {
+    display: block;
+  }
+}
+@media (min-width: 30em) {
+  .texting {
+    font-size: 3em;
+  }
+}
+@media (min-width: 40em) {
+ .texting {
+    font-size: 5em;
+  }
+}
+@media (min-width: 60em) {
+  .texting {
+    font-size: 3em;
+  }
+
+}
+</style>
+</head>
+<body class="bg noselect" style="margin-bottom:120px">
+  <p class="texting" style="text-align: center; color: #1a4d85; margin-top: 10px;margin-bottom: 30px; display: none;">
+  <span data-text="O">O</span>
+  <span data-text="R">R</span>
+  <span data-text="G">G</span>
+  <span data-text="N">N</span>
+  <span data-text="I">I</span>
+  <span data-text="Z">Z</span>
+  <span data-text="A">A</span>
+  <span data-text="T">T</span>
+  <span data-text="I">I</span>
+  <span data-text="O">O</span>
+  <span data-text="N">N</span>
+  <span data-text=""></span>
+  <span data-text="E">E</span>
+  <span data-text="X">X</span>
+  <span data-text="P">P</span>
+  <span data-text="O">O</span>
+  <span data-text="S">S</span>
+  <span data-text="U">U</span>
+  <span data-text="R">R</span>
+  <span data-text="E">E</span>
+</p>
+<div id="app" class="container ">
+  <card data-image="cyberbg.jpg">
+    <h1 slot="header"><br><br><br><br><br><br><br><br><br><br>EKENNIS<br><br></h1>
+    <p slot="content">--<span style="color: yellow">Database Adminstrator</span>--<br>
+      Web development. <br>Blue-Host server handle. <br>IT and data security manage. <br><br> also Contribute in digital marketing, pamphlet, brochure, id cards, video recoring & editing, manage and maintain student's record, exams and attendance, Manage inventory, front desk, office documents etc.
+    </p>
+  </card>
+ 
+  <card data-image="https://ak3.picdn.net/shutterstock/videos/9991673/thumb/1.jpg">
+    <h1 slot="header"><br><br><br><br><br><br><br><br><br><br><br><br>CONSUMER FIRST<br><br><br></h1>
+    <p slot="content">--<span style="color: yellow">Android Technical Trainee</span>--
+Mobile API creation.<br> One Signal Notification.<br> Project Handling (Gitlab).<br> Transport and Courier. <br>Google map API.<br> E-market (negotiation & chat).<br> E-ticket Booking.<br> Rezor pay payment transection.<br> Appointment and Remainder.<br> Banner Promotion. <br> Clock in (attendance system with location based).
+    </p>
+  </card>
+  <card data-image="https://images.unsplash.com/photo-1479621051492-5a6f9bd9e51a?dpr=2&auto=compress,format&fit=crop&w=1199&h=811&q=80&cs=tinysrgb&crop=">
+    <h1 slot="header"><br><br><br>Web Addiction</h1>
+    <p slot="content">--<span style="color: yellow">Web + Android Developer</span>--
+      Aakar360 Mobile App.<br>
+      Aakar360 Web.<br>
+      CRM web.<br>
+      AWS server handle (putty).<br>
+      AWS git file handle.
+    </p>
+  </card>
+</div>
+
+<!-- partial:index.partial.html -->
+<div class="slider">
+<div class="slider-wrapper flex">
+  <div class="slide flex">
+    <div class="slide-image slider-link prev"><img src="image/ekennis.png"><div class="overlay"></div></div>
+    <div class="slide-content">
+      <div class="slide-date">30.07.2017.</div>
+      <div class="slide-title">EKENNIS SOFTWARE SERVICE PRIVATE LIMITED</div>
+      <div class="slide-text">To be a leading global IT company offering comprehensive solutions in Business applications, infrastructure, Business Consulting with compelling product offerings differentiated and customized for specific markets and customer segments.</div>
+      <div class="slide-more"><a style="text-decoration: none; color:#ffc0cb" href="https://www.ekennis.com">READ MORE...</a></div>
+    </div>  
+  </div>
+  <div class="slide flex">
+    <div class="slide-image slider-link next"><img src="image/helpcyber.jpg"><div class="overlay"></div></div>
+    <div class="slide-content">
+      <div class="slide-date">15.01.2018.</div>
+      <div class="slide-title">HELP CYBER WORLD</div>
+      <div class="slide-text">The helpcyberworld.com accepts online Internet crime complaints from either the actual victim or from a third party to the complainant. We can best process your complaint if we receive accurate and complete information from you. Therefore, we request you provide the following information when filing a complaint. </div>
+      <div class="slide-more"><a style="text-decoration: none; color:#ffc0cb" href="https://www.helpcyberworld.com">READ MORE...</a></div>
+    </div>  
+  </div>  
+  <div class="slide flex">
+    <div class="slide-image slider-link next"><img src="image/meeting.png"><div class="overlay"></div></div>
+    <div class="slide-content">
+      <div class="slide-date">10.09.2019.</div>
+      <div class="slide-title">EKENNIS MEETING</div>
+      <div class="slide-text">A web and app base dashboard which help to manage and schedule meetings.</div>
+      <div class="slide-more"><a style="text-decoration: none; color:#ffc0cb" href="https://www.meeting.helpcyberworld.com">READ MORE...</a></div>
+    </div>  
+  </div>
+    <div class="slide flex">
+    <div class="slide-image slider-link next"><img src="https://goranvrban.com/codepen/img6.jpg"><div class="overlay"></div></div>
+    <div class="slide-content">
+      <div class="slide-date">30.10.2017.</div>
+      <div class="slide-title">LOREM IPSUM DOLOR SITE MATE, AD EST ABHORREANT</div>
+      <div class="slide-text">Lorem ipsum dolor sit amet, ad est abhorreant efficiantur, vero oporteat apeirian in vel. Et appareat electram appellantur est. Ei nec duis invenire. Cu mel ipsum laoreet, per rebum omittam ex. </div>
+      <div class="slide-more">READ MORE</div>
+    </div>  
+  </div>
+</div>
+<div class="arrows">
+<a href="#" title="Previous" class="arrow slider-link prev"></a>
+<a href="#" title="Next" class="arrow slider-link next"></a>
+</div>
+</div>
+<!-- partial -->
+
+<p class="copy text-upper" style="margin-top:-390px;margin-left: 20px;">© 2019. Design &amp; Code By Chandrahas Verma 
+<a style="margin-top: 50px ;color:#ffffff;" href="../index.html" class="atag">Home</a></p>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js'></script>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script><script  src="./script.js"></script>
+<script  src="./script.js"></script>
+<script  src="./card.js"></script>
+
+</body>
+</html>
